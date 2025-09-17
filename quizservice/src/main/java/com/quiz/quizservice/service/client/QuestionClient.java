@@ -10,9 +10,9 @@ import java.util.List;
 @FeignClient(name = "QUESTIONSERVICE")
 public interface QuestionClient {
 
-    @GetMapping("/Question/{id}")
+    @GetMapping("/questions/{id}")
     List<QuestionResponseDTO> findById(@PathVariable Long id);
 
-    @GetMapping("/Question/all")
+    @GetMapping("/questions/all")
     List<QuestionResponseDTO> findAll();
 }
