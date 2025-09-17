@@ -1,0 +1,18 @@
+package com.quiz.quizservice.service.client;
+
+import com.quiz.quizservice.dto.response.QuestionResponseDTO;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.List;
+
+@FeignClient(url = "http://localhost:8082", value = "Question-Client")
+public interface QuestionClient {
+
+    @GetMapping("/Question/{id}")
+    List<QuestionResponseDTO> findById(@PathVariable Long id);
+
+    @GetMapping("/Question/all")
+    List<QuestionResponseDTO> findAll();
+}
